@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Cw3APBD.DAL;
 
 namespace Cw3APBD
 {
@@ -26,7 +27,7 @@ namespace Cw3APBD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddSingleton<IDbService,MockDbService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
